@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Atividades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerencie Suas Atividades</h1>
+    </header>
+
+    <main>
+        <section class="formulario">
+            <h2>Adicionar Atividade</h2>
+            <input type="text" id="nomeMateria" placeholder="Nome da Matéria">
+            <input type="date" id="dataEntrega" placeholder="Data de Entrega">
+            <textarea id="descricaoAtividade" placeholder="Descrição da Atividade"></textarea>
+            <input type="file" id="arquivoMateria" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.xls,.xlsx">
+            <button id="adicionarAtividade">Adicionar Atividade</button>
+
+            <!-- Roda de cores personalizada logo abaixo do botão -->
+            <section class="cor-de-fundo">
+                <h2>Alterar Cor de Fundo</h2>
+                <canvas id="colorWheel" width="200" height="200"></canvas>
+                <!-- Pequeno círculo para indicar a posição do mouse -->
+                <div id="cursorPosicao" class="cursor-indicador"></div>
+            </section>
+        </section>
+
+        <section class="atividades-lista">
+            <h2>Lista de Atividades</h2>
+            <div id="atividades"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>2024 - Gerenciador de Atividades. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
