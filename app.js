@@ -11,43 +11,45 @@ function carregarAtividades() {
     
     // Função para exibir atividades na página
     function exibirAtividades() {
-        const atividadesDiv = document.getElementById('atividades');
-        atividadesDiv.innerHTML = '';
+        const atividadesDiv = document.getElementById('atividades');
+        atividadesDiv.innerHTML = '';
     
-        const atividades = carregarAtividades();
+        const atividades = carregarAtividades();
     
-        atividades.forEach((atividade, index) => {
-            const atividadeElemento = document.createElement('div');
-            atividadeElemento.classList.add('atividade');
+        atividades.forEach((atividade, index) => {
+            const atividadeElemento = document.createElement('div');
+            atividadeElemento.classList.add('atividade');
     
-            let arquivoHTML = '';
-            if (atividade.arquivo) {
-                if (atividade.tipo === 'image') {
-                    arquivoHTML = `<img src="${atividade.arquivo}" alt="Imagem da Matéria">`;
-                } else {
-                    arquivoHTML = `<a href="${atividade.arquivo}" target="_blank">${atividade.nomeArquivo}</a>`;
-                }
-            }
+            let arquivoHTML = '';
+            if (atividade.arquivo) {
+                if (atividade.tipo === 'image') {
+                    arquivoHTML = `<img src="${atividade.arquivo}" alt="Imagem da Matéria">`;
+                } else {
+                    // Modificado para adicionar o atributo download e garantir abertura em nova janela
+                    arquivoHTML = `<a href="${atividade.arquivo}" target="_blank" download="${atividade.nomeArquivo}">${atividade.nomeArquivo}</a>`;
+                }
+            }
     
-            atividadeElemento.innerHTML = `
-                ${arquivoHTML}
-                <h3>${atividade.materia}</h3>
-                <p>${atividade.descricao}</p>
-                <small>Data de entrega: ${atividade.data}</small>
-                <button class="remover" data-index="${index}">Remover</button>
-            `;
+            atividadeElemento.innerHTML = `
+                ${arquivoHTML}
+                <h3>${atividade.materia}</h3>
+                <p>${atividade.descricao}</p>
+                <small>Data de entrega: ${atividade.data}</small>
+                <button class="remover" data-index="${index}">Remover</button>
+            `;
     
-            atividadesDiv.appendChild(atividadeElemento);
+            atividadesDiv.appendChild(atividadeElemento);
     
-            setTimeout(() => {
-                atividadeElemento.classList.add('mostrar');
-            }, 100);
-        });
+            setTimeout(() => {
+                atividadeElemento.classList.add('mostrar');
+            }, 100);
+        });
     
-        document.querySelectorAll('button.remover').forEach(button => {
-            button.addEventListener('click', removerAtividade);
-        });
+        document.querySelectorAll('button.remover').forEach(button => {
+            button.addEventListener('click', removerAtividade);
+        });
     }
+    
     
     // Função para adicionar uma nova atividade
     function adicionarAtividade() {
@@ -190,8 +192,7 @@ function carregarAtividades() {
     
     // Eventos de clique e movimento do mouse
     document.getElementById('colorWheel').addEventListener('click', pegarCor);
-    document.getElementById('colorWheel').addEventListener('mousemove', atualizarCursorIndicador);
-    
+
     // Ao carregar a página
     window.onload = function () {
         carregarCorSalva();
