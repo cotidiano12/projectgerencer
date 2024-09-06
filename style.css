@@ -13,6 +13,15 @@ body {
     padding: 0;
 }
 
+/* Estiliza os títulos h1 */
+h1 {
+    font-size: 2rem; /* Tamanho da fonte */
+    color: #222831; /* Cor do texto */
+    text-align: center; /* Alinha o texto ao centro */
+    letter-spacing: 0.1rem; /* Espaçamento entre letras */
+    animation: fadeInUp 0.8s ease-in-out; /* Animação de subida suave */
+}
+
 /* Seção da roda de cores */
 .cor-de-fundo {
     margin-top: 2rem;
@@ -191,4 +200,3 @@ footer {
     border-radius: 5px;
     margin-bottom: 0.5rem;
 }
-
